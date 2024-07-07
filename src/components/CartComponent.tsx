@@ -64,7 +64,7 @@ const CartComponent = (props: Props) => {
 
   return (
     <div className="bg-white px-20 py-10">
-      <h3 className="text-black font-bold text-xl">MY CART</h3>
+      <h3 className="text-[#551756] font-bold text-xl">MY CART</h3>
       {/* Added conditional statement to check if cartItems is empty */}
       {cartItems.length === 0 ? (
         <>
@@ -73,7 +73,7 @@ const CartComponent = (props: Props) => {
           </p>
           <Link href="/food">
             <div className="flex items-center justify-center mt-4">
-              <button className="bg-green-600 text-white px-4 rounded-xl h-[38px] ">
+              <button className="bg-gradient-to-r from-[#cab273] to-[#e2cb8e] text-white px-4 rounded-xl h-[38px] ">
                 Add Something
               </button>
             </div>
@@ -92,30 +92,30 @@ const CartComponent = (props: Props) => {
             ))}
           </div>
           <div className="w-[50%]">
-            <div className="rounded-xl bg-[#253651] flex flex-col p-5 items-start gap-y-2">
-              <h3 className="text-white font-semibold text-md">
+            <div className="rounded-xl bg-[#f3f0e9] flex flex-col p-5 items-start gap-y-2">
+              <h3 className="text-[#551756] font-semibold text-md">
                 Details of your Order
               </h3>
-              <p className="text-white text-xs">
+              <p className="text-[#551756] text-xs">
                 Order Weight : <span className="font-bold">{orderWeight}g</span>
               </p>
-              <p className="text-white text-xs">
+              <p className="text-[#551756] text-xs">
                 Good items ({cartItems.length}) :{" "}
-                <span className="font-bold">${totalPrice.toFixed(2)}</span>
+                <span className="font-bold">Rs.{totalPrice.toFixed(2)}</span>
               </p>
-              <p className="text-white text-xs">
-                Delivery : <span className="font-bold">$10</span>
+              <p className="text-[#551756] text-xs">
+                Delivery : <span className="font-bold">Rs.200</span>
               </p>
               <div className="w-full h-[1px] bg-gray-500"></div>
-              <p className="text-white text-xs">
+              <p className="text-[#551756] text-xs">
                 Total Price :{" "}
-                <span className="font-bold text-green-600">
-                  ${(totalPrice + 10).toFixed(2)}
+                <span className="font-bold text-[#cab273]">
+                  Rs.{(totalPrice + 200).toFixed(2)}
                 </span>
               </p>
               <button
                 onClick={Proceed}
-                className=" text-white px-3 py-2 drop-shadow-lg bg-green-600 rounded-full text-sm mx-auto"
+                className="text-white px-3 py-2 drop-shadow-lg bg-gradient-to-r from-[#cab273] to-[#e2cb8e] rounded-full text-sm mx-auto transition-transform hover:scale-105 hover:bg-[#c9a752]"
               >
                 Checkout
               </button>

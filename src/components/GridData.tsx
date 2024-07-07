@@ -103,7 +103,7 @@ const DataOfGrid = ({ action, data }: props) => {
       id: product._id,
       name: product.name,
       desc: product.description,
-      calories: product.calories,
+      brand: product.brand,
       price: product.price,
       weight: product.weight,
       image: product.image,
@@ -112,6 +112,7 @@ const DataOfGrid = ({ action, data }: props) => {
     const handleDelete = async (id: string) => {
       try {
         await axiosRequest.delete(`/product/${id}`);
+
         window.location.reload();
       } catch (error) {
         console.log("Delete product : ", error);
@@ -140,7 +141,7 @@ const DataOfGrid = ({ action, data }: props) => {
       { field: "name", headerName: "Name", width: 120, type: "string" },
       { field: "price", headerName: "Price", width: 120, type: "number" },
       { field: "weight", headerName: "Weight", width: 100, type: "number" },
-      { field: "calories", headerName: "Calories", width: 150, type: "number" },
+      { field: "brand", headerName: "Brand", width: 150, type: "string" },
       { field: "desc", headerName: "Description", width: 400 },
     ];
 
@@ -182,7 +183,7 @@ const DataOfGrid = ({ action, data }: props) => {
             columns={[...userColumns, ...actionColumn]}
             initialState={{
               pagination: {
-                paginationModel: { page: 0, pageSize: 6 },
+                paginationModel: { page: 0, pageSize: 4 },
               },
             }}
             slots={{ toolbar: GridToolbar }}
@@ -192,7 +193,7 @@ const DataOfGrid = ({ action, data }: props) => {
                 quickFilterProps: { debounceMs: 500 },
               },
             }}
-            pageSizeOptions={[6]}
+            pageSizeOptions={[4]}
             checkboxSelection
             disableRowSelectionOnClick
             disableColumnFilter

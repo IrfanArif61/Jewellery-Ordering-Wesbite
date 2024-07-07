@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       name,
       price,
       weight,
-      calories,
+      brand,
       description,
       category,
       image,
@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       name,
       weight,
       price,
-      calories,
+      brand,
       description,
       image,
       category,
@@ -107,12 +107,14 @@ export async function PUT(request: Request) {
       name,
       price,
       weight,
-      calories,
+      brand,
       description,
       category,
       image,
     }: Partial<foodsType> = await request.json();
 
+
+    console.log("Description : ",description)
 
     const existingProduct = await Product.findById(_id);
 
@@ -129,7 +131,7 @@ export async function PUT(request: Request) {
     existingProduct.name = name ?? existingProduct.name;
     existingProduct.price = price ?? existingProduct.price;
     existingProduct.weight = weight ?? existingProduct.weight;
-    existingProduct.calories = calories ?? existingProduct.calories;
+    existingProduct.brand = brand ?? existingProduct.brand;
     existingProduct.description = description ?? existingProduct.description;
     existingProduct.category = category ?? existingProduct.category;
     existingProduct.image = image ?? existingProduct.image;

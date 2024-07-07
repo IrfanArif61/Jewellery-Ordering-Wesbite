@@ -2,13 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#181E27] to-[#253651]  ">
+    <footer className="bg-[#f3f0e9]  ">
       <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 ">
           <div>
-            <h1 className="text-green-600 text-xl font-bold">CleanPlate</h1>
-            <p className="max-w-xs mt-4 text-sm text-gray-300">
-              Enjoy healthy and fresh salad.
+            <h1 className="text-[#551756] text-xl font-bold">ZaGull's</h1>
+            <p className="max-w-xs mt-4 text-sm text-[#56174f]">
+              Timeless Elegance, Handcrafted Luxury
             </p>
             <div className="flex mt-8 space-x-6 text-gray-600">
               <a className="hover:opacity-75" target="_blank" rel="noreferrer">
@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
             <div>
-              <p className="font-medium text-white">Company</p>
+              <p className=" text-[#551756] font-bold">Company</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75"> About </a>
                 <a className="hover:opacity-75"> Meet the Team </a>
@@ -95,7 +95,7 @@ const Footer = () => {
               </nav>
             </div>
             <div>
-              <p className="font-medium text-white">Services</p>
+              <p className=" text-[#551756] font-bold">Services</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75"> 1on1 Coaching </a>
                 <a className="hover:opacity-75"> Company Review </a>
@@ -105,7 +105,7 @@ const Footer = () => {
               </nav>
             </div>
             <div>
-              <p className="font-medium text-white">Helpful Links</p>
+              <p className=" text-[#551756] font-bold">Helpful Links</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75"> Contact </a>
                 <a className="hover:opacity-75"> FAQs </a>
@@ -113,7 +113,7 @@ const Footer = () => {
               </nav>
             </div>
             <div>
-              <p className="font-medium text-white">Legal</p>
+              <p className=" text-[#551756] font-bold">Legal</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75"> Privacy Policy </a>
                 <a className="hover:opacity-75"> Terms &amp; Conditions </a>
@@ -123,7 +123,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="mt-8 text-xs text-white">© 2022 CleanPlate</p>
+        <p className="mt-8 text-xs text-[#551756]">© 2024 ZaGull's</p>
       </div>
     </footer>
   );

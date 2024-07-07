@@ -4,7 +4,7 @@ export interface Products extends mongoose.Document {
   name: string;
   price: number;
   weight: number;
-  calories : number;
+  brand : string;
   description : string
   category : string;
   image : string,
@@ -25,8 +25,8 @@ const ProductSchema = new mongoose.Schema<Products>({
     type: Number,
     required : true
   },
-  calories:{
-    type: Number,
+  brand:{
+    type: String,
     required : true
   },
   description:{

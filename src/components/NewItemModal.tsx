@@ -1,8 +1,7 @@
 import { axiosRequest } from "@/lib/config";
 import { CldUploadButton } from "next-cloudinary";
 import React, { useState } from "react";
-import { toast, ToastContainer } from 'react-toastify';
-
+import { toast, ToastContainer } from "react-toastify";
 
 type Props = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,33 +11,32 @@ const NewItemModal = (props: Props) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [weight, setWeight] = useState("");
-  const [calories, setCalories] = useState("");
+  const [brand, setBrand] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
 
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Validation
-    if (!name || !price || !weight || !calories || !desc || !image) {
+    if (!name || !price || !weight || !brand || !desc || !image) {
       toast.error("Please fill in all fields.");
       return;
     }
 
     try {
-      await axiosRequest.post('/product',{
+      await axiosRequest.post("/product", {
         name,
         price,
         weight,
-        calories,
+        brand,
         description: desc,
-        category: 'salad',
+        category: "salad",
         image,
       });
       toast.success("Item added successfully!");
       setTimeout(() => {
         props.setOpen(false);
       }, 2000);
-      
     } catch (error) {
       console.error(error);
       toast.error("Failed to add item. Please try again later.");
@@ -51,7 +49,7 @@ const NewItemModal = (props: Props) => {
 
   return (
     <div className="w-[100vw] mx-auto h-[100vh] absolute top-0 left-0 bg-[#0f0e0eb9] flex justify-center items-center text-white z-20">
-      <div className="p-[50px] rounded-[10px] bg-[#253651] relative flex flex-col">
+      <div className="p-[50px] rounded-[10px] bg-[#3b3436] relative flex flex-col">
         <span
           className="absolute top-[10px] right-[10px] cursor-pointer text-red-600 font-bold"
           onClick={() => props.setOpen(false)}
@@ -94,12 +92,12 @@ const NewItemModal = (props: Props) => {
             </label>
 
             <label className="input input-bordered flex items-center gap-2 text-gray-500 font-semibold">
-              Calories:
+              Brand:
               <input
-                type="number"
+                type="text"
                 className="grow"
-                value={calories}
-                onChange={(e) => setCalories(e.target.value)}
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
               />
             </label>
 
@@ -118,11 +116,11 @@ const NewItemModal = (props: Props) => {
               className="bg-red-600 text-white p-2 rounded-md w-[50%] mx-auto"
               onSuccess={handleImageUpload}
             >
-              {image?'Uploaded':'Upload'}
+              {image ? "Uploaded" : "Upload"}
             </CldUploadButton>
           </div>
           <div className="flex justify-center items-center mt-8">
-            <button className="text-xl bg-textSoft rounded-[5px] px-36 py-2.5">
+            <button className="text-xl bg-[#cab273] hover:bg-[#ebcc7e]  rounded-[5px] px-36 py-2.5">
               Add
             </button>
           </div>

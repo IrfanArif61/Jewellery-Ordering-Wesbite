@@ -8,6 +8,8 @@ import { foodsType } from "@/types";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
+import Link from "next/link";
+import TypewriterComponent from "typewriter-effect";
 
 export default function HomePage() {
   const [foods, setFoods] = useState<foodsType[]>([]);
@@ -35,28 +37,45 @@ export default function HomePage() {
       <div>
         <div id="container" className="flex  min-h-screen">
           <div className=" flex flex-col gap-10">
-            <p className="text-xl text-[#e1e1d9] mt-10">
-              Welcome to CleanPlate delivery
+            <p className="text-xl text-[#551756] mt-10">
+              Welcome to{" "}
+              <span className="font-semibold">ZaGull's Jewellery Store</span>{" "}
             </p>
-            <h1 className="text-5xl font-bold text-white">
-              The Faster Healthy Food Delivery In{" "}
-              <span className="text-textSoft">Your City</span>
+            <h1 className="text-5xl font-bold text-[#551756]">
+              The Finest Luxury Jewelry
+              <span className=" text-[#cab273] bg-clip-text mt-8">
+                <TypewriterComponent
+                  options={{
+                    strings: [
+                      "Crafted For You!!",
+                      "Crafted For Perfection!!",
+                      "Crafted For Elegance!!",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
+              </span>
             </h1>
-            <p className="text-md text-justify max-w-[450px] text-white">
-              Discover a world of culinary delights where taste meets nutrition.
-              Indulge in our handcrafted dishes, meticulously prepared to
-              tantalize your senses. CleanPlate delivery promises an unforgettable gastronomic
-              journey. Join us and savor the essence of fine dining, redefined
-              for your convenience.
+
+            <p className="text-md text-justify max-w-[450px] text-[#551756]">
+              Discover a world of exquisite craftsmanship where elegance meets
+              sophistication. Indulge in our handcrafted pieces, meticulously
+              designed to captivate your senses. ZaGull's Jewellery promises an
+              unforgettable experience of luxury. Join us and savor the essence
+              of fine jewelry, redefined for your style.
             </p>
             <div className="flex items-center gap-5">
-              <button className="p-3 min-w-[120px] cursor-pointer border-none rounded-2xl bg-gradient-to-r from-textSoft to-text text-white flex justify-center items-center animate-bounce  ">
+              <Link
+                href={"/food"}
+                className="p-3 min-w-[120px] cursor-pointer border-none rounded-2xl bg-gradient-to-r from-[#cab273] to-[#e2cb8e] text-white font-bold flex justify-center items-center animate-bounce  "
+              >
                 Order Now
-              </button>
+              </Link>
             </div>
           </div>
           <div className="w-[800px] flex">
-            <img src="/saladd.png" alt="" className="my-auto" />
+            <img src="/3.png" alt="" className="my-auto" />
           </div>
         </div>
         <div className="bg-[#f4f4f4] flex flex-col gap-20 pt-24">

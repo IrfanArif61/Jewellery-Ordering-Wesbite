@@ -13,7 +13,7 @@ const OrderPage = async () => {
   const { data } = await axiosRequest.get(`/order/${session.user.id}`);
 
   return (
-    <div className="bg-[#2b3e5d] p-5 rounded-[10px] mt-2.5 mx-20 mb-4">
+    <div className="bg-[#3b3436] p-5 rounded-[10px] mt-2.5 mx-20 mb-4">
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold text-white">Order Page</h1>
       </header>

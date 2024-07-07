@@ -1,9 +1,10 @@
-'use client'
+"use client";
 import { axiosRequest } from "@/lib/config";
 import { redirect } from "next/navigation";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
+import Link from "next/link";
 
 interface FormData {
   name: string;
@@ -32,7 +33,12 @@ const SignUp: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Basic validation
-    if (!formData.name || !formData.email || !formData.password || !formData.address) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.password ||
+      !formData.address
+    ) {
       toast.error("Please fill in all fields");
       return;
     }
@@ -42,10 +48,10 @@ const SignUp: React.FC = () => {
     }
 
     try {
-      const {data} = await axiosRequest.post('/user', formData);
-      console.log(data)
-      if(!data.success){
-        toast.error(data.message)
+      const { data } = await axiosRequest.post("/user", formData);
+      console.log(data);
+      if (!data.success) {
+        toast.error(data.message);
         return;
       }
       toast.success("Sign up successful!");
@@ -56,25 +62,26 @@ const SignUp: React.FC = () => {
         address: "",
       });
       setTimeout(() => {
-        
-        router.push('/login');
+        router.push("/login");
       }, 2000);
-    } catch (error ) {
+    } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message);
     }
   };
-
 
   return (
     <div>
       <ToastContainer />
       <section className="bg-white dark:bg-gray-900">
         <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-          <form className="w-full max-w-md shadow-[0_3px_10px_rgb(0,0,0,0.2)]" onSubmit={handleSubmit}>
+          <form
+            className="w-full max-w-md shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+            onSubmit={handleSubmit}
+          >
             <div className="flex justify-center mx-auto">
-              <h3 className="mt-8 mb-4 text-2xl font-medium text-center text-text dark:text-gray-200">
-                <b>CleanPlate</b>
+              <h3 className="mt-8 mb-4 text-2xl font-medium text-center text-[#551756] dark:text-gray-200">
+                <b>ZaGull's</b>
               </h3>
             </div>
 
@@ -162,8 +169,6 @@ const SignUp: React.FC = () => {
               />
             </div>
 
-            
-
             <div className="relative flex items-center mt-4">
               <span className="absolute">
                 <svg
@@ -193,20 +198,29 @@ const SignUp: React.FC = () => {
             </div>
 
             <div className="mt-6">
-              <button type="submit" className="w-[30%] px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-text rounded-lg hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50 ml-40">
+              <button
+                type="submit"
+                className="w-[30%] px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#cab273] rounded-lg hover:bg-[#d4b76d] focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50 ml-40"
+              >
                 Sign Up
               </button>
 
               <div className="mt-6 text-center mb-4">
-                <a href="/login" className="text-sm text-gray-500 hover:underline dark:text-blue-400">
-                  Already have an account?
-                </a>
+                <span className="text-sm text-gray-600 dark:text-gray-200">
+                  Already have an account?{" "}
+                </span>
+
+                <Link
+                  href="/login"
+                  className="mx-2 text-sm font-bold text-[#cab273] dark:text-blue-400 hover:underline"
+                >
+                  Login
+                </Link>
               </div>
             </div>
           </form>
         </div>
       </section>
-      
     </div>
   );
 };
